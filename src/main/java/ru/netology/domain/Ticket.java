@@ -11,6 +11,14 @@ public class Ticket implements Comparable<Ticket> {
         return id;
     }
 
+    public String getApIn() {
+        return apIn;
+    }
+
+    public String getApOut() {
+        return apOut;
+    }
+
     @Override
     public int compareTo(Ticket o) {
         return this.price - o.price;
