@@ -18,14 +18,14 @@ public class TicketRepo {
         return tickets;
     }
 
-    public Ticket[] findById(int id) {
-        for (Ticket item : tickets) {
-            if (item.getId() == id) {
-                return new Ticket[]{item};
-            }
-        }
-        return null;
-    }
+//    public Ticket[] findById(int id) {
+//        for (Ticket item : tickets) {
+//            if (item.getId() == id) {
+//                return new Ticket[]{item};
+//            }
+//        }
+//        return null;
+//    }
 
     public void removeById(int id) {
 //        if (findById(id) == null){
