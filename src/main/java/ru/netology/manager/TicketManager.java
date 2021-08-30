@@ -11,7 +11,7 @@ public class TicketManager {
     }
 
     public boolean matches(Ticket ticket, String search) {
-        if (ticket instanceof Ticket) { // если в параметре ticket лежит объект класса Ticket
+//        if (ticket instanceof Ticket) { // если в параметре ticket лежит объект класса Ticket
 //            Ticket ticket = (Ticket) ticket; // положем его в переменную типа Ticket чтобы пользоваться методами класса Ticket
             if (ticket.getApIn().contains(search) & ticket.getApOut().contains(search)) { // проверим есть ли поисковое слово в данных об аэропорте
                 return true;
