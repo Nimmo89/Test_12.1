@@ -35,7 +35,6 @@ public class TicketManager {
 //    }
 
     public Ticket[] findAll(String from, String to) {
-        Ticket[] tickets = repository.findAll();
         Ticket[] result = new Ticket[0];
         for (Ticket ticket : repository.findAll()) {
             if (ticket.getApFrom().equalsIgnoreCase(from) && ticket.getApTo().equalsIgnoreCase(to)) {
@@ -43,9 +42,11 @@ public class TicketManager {
                 for (int i = 0; i < result.length; i++) {
                     tmp[i] = result[i];
                 }
+                tmp[tmp.length - 1] = ticket;
+                result = tmp;
             }
         }
-        return tickets;
+        return result;
     }
 
     public TicketManager(TicketRepo repository) {
