@@ -10,17 +10,17 @@ public class TicketManager {
         repository.save(ticket);
     }
 
-    public boolean matches(Ticket ticket, String search) {
+//    public boolean matches(Ticket ticket, String search) {
 //        if (ticket instanceof Ticket) { // если в параметре ticket лежит объект класса Ticket
 //            Ticket ticket = (Ticket) ticket; // положем его в переменную типа Ticket чтобы пользоваться методами класса Ticket
-            if (ticket.getApIn().contains(search) & ticket.getApOut().contains(search)) { // проверим есть ли поисковое слово в данных об аэропорте
-                return true;
-            }
+//            if (ticket.getApIn().contains(search) & ticket.getApOut().contains(search)) { // проверим есть ли поисковое слово в данных об аэропорте
+//                return true;
+//            }
 //            if (ticket.getApOut().contains(search)) {
 //                return true;
 //            }
-            return false;
-        }
+//            return false;
+//        }
 //        if (ticket instanceof Ticket) { // если в параметре product лежит объект класса Smartphone
 //            Ticket ticket = (Ticket) product; // положем его в переменную типа Smartphone чтобы пользоваться методами класса Smartphone
 //            if (ticket.getProducer().contains(search)) { // проверим есть ли поисковое слово в данных об производителе
@@ -31,23 +31,37 @@ public class TicketManager {
 //            }
 //            return false;
 //        }
-        return false;
-    }
+//        return false;
+//    }
 
-    public Ticket[] searchByAp(String text) {
+    public Ticket[] findAll(String from, String to) {
+        Ticket[] tickets = repository.findAll();
         Ticket[] result = new Ticket[0];
         for (Ticket ticket : repository.findAll()) {
-            if (matches(ticket, text)) {
+            if (ticket.getApFrom().equalsIgnoreCase(from) && ticket.getApTo().equalsIgnoreCase(to)) {
                 Ticket[] tmp = new Ticket[result.length + 1];
                 for (int i = 0; i < result.length; i++) {
                     tmp[i] = result[i];
                 }
-                tmp[tmp.length - 1] = ticket;
-                result = tmp;
             }
         }
-        return result;
+        return tickets;
     }
+
+//    public Ticket[] searchByAp(String text) {
+//        Ticket[] result = new Ticket[0];
+//        for (Ticket ticket : repository.findAll()) {
+//            if (matches(ticket, text)) {
+//                Ticket[] tmp = new Ticket[result.length + 1];
+//                for (int i = 0; i < result.length; i++) {
+//                    tmp[i] = result[i];
+//                }
+//                tmp[tmp.length - 1] = ticket;
+//                result = tmp;
+//            }
+//        }
+//        return result;
+//    }
 
     public TicketManager(TicketRepo repository) {
         this.repository = repository;
