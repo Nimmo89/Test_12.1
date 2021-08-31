@@ -3,20 +3,20 @@ package ru.netology.domain;
 public class Ticket implements Comparable<Ticket> {
     private int id;
     private int price;
-    private String apIn;
-    private String apOut;
+    private String apTo;
+    private String apFrom;
     private int time;
 
     public int getId() {
         return id;
     }
 
-    public String getApIn() {
-        return apIn;
+    public String getApTo() {
+        return apTo;
     }
 
-    public String getApOut() {
-        return apOut;
+    public String getApFrom() {
+        return apFrom;
     }
 
     @Override
