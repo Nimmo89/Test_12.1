@@ -51,7 +51,6 @@ class TicketManagerTest {
 
         Ticket[] expected = new Ticket[]{t4, t5};
         Ticket[] actual = manager.findAll("UW","UMK");
-        Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
 
@@ -60,7 +59,6 @@ class TicketManagerTest {
 
         Ticket[] expected = new Ticket[]{t9};
         Ticket[] actual = manager.findAll("UO","UE");
-        Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
 
@@ -69,7 +67,6 @@ class TicketManagerTest {
 
         Ticket[] expected = new Ticket[]{};
         Ticket[] actual = manager.findAll("UMK","UE");
-        Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
 }
